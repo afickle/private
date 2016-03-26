@@ -1,0 +1,29 @@
+{
+  "name": "private",
+  "version": "1.0.0",
+  "description": "Just for personal practise.",
+  "main": "server.js",
+  "dependencies": {
+    "socket.io": "~0.9.6",
+    "mime": "~1.2.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afickle/private.git"
+  },
+  "keywords": [
+    "private",
+    "personal",
+    "exercise"
+  ],
+  "author": "fickle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afickle/private/issues"
+  },
+  "homepage": "https://github.com/afickle/private#readme"
+}
