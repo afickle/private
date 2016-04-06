@@ -429,8 +429,7 @@ ul+li{
 .search_btn {
     position:relative;
     top: 50%; 
-    text-align:left;
-    padding: 0px 5px;
+    text-align: center;
     transform: translateY(-50%);  
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
@@ -439,7 +438,7 @@ ul+li{
 }/*右边按钮居中对齐的样式*/
 .search_right {
     float:left;
-    height:30px;
+    height:32px;
     width: 70px;
     color: #fff;
     background-color: #f05654;
@@ -454,12 +453,12 @@ ul+li{
     float:left;height:30px;
 }
 .search_left input {
+	height:100%;
+	width: 300px;
     border:2px solid #f05654;padding-left:10px;
 }
 .search_area {
-    height: 80px;
     padding: 25px 0px;
-    float:left;
 }
 .search_icon {
     margin-left: 5px;
