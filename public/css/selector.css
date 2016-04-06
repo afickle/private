@@ -463,4 +463,27 @@ ul+li{
 .search_icon {
     margin-left: 5px;
 }
+
+.triangle_border_down{
+    width: 0;
+    height: 0;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: #DDD transparent transparent;
+    clear: left;
+    position: relative;
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+.triangle_border_down span{
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 29px 29px 0;
+    border-style: solid;
+    border-color: #F5F5F5 transparent transparent;
+    position: absolute;
+    top: -31px;1
+    left: -28px;
+}
 /*search css end*/
