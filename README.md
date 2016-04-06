@@ -1,2 +1,2 @@
 # webApp
-Examples for web app and my exercises.
+Examples for personal practice and my exercises.
