@@ -483,7 +483,15 @@ ul+li{
     border-style: solid;
     border-color: #F5F5F5 transparent transparent;
     position: absolute;
-    top: -31px;1
+    top: -31px;
     left: -28px;
+}
+
+.clip{
+	height: 50px;
+	line-height: 50px;
+	position: absolute;
+	clip: rect(0 auto 35px 10px);
+	background: #eee;
 }
 /*search css end*/
