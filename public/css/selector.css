@@ -426,72 +426,135 @@ ul+li{
 /*picture center and middle css end*/	
 
 /*search css start*/
-.search_btn {
-    position:relative;
-    top: 50%; 
-    text-align: center;
-    transform: translateY(-50%);  
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -moz-transform: translateY(-50%); 
-    -webkit-transform: translateY(-50%);
-}/*右边按钮居中对齐的样式*/
-.search_right {
-    float:left;
-    height:32px;
-    width: 70px;
-    color: #fff;
-    background-color: #f05654;
-    border: 2px solid #f05654;
-}
-.search_right:hover {
-    background-color: #f06545;
-    border: 2px solid #f06545;
-    cursor:pointer;
-}
-.search_left {
-    float:left;height:30px;
-}
-.search_left input {
-	height:100%;
-	width: 300px;
-    border:2px solid #f05654;padding-left:10px;
-}
-.search_area {
-    padding: 25px 0px;
-}
-.search_icon {
-    margin-left: 5px;
-}
+	.search_btn {
+	    position:relative;
+	    top: 50%; 
+	    text-align: center;
+	    transform: translateY(-50%);  
+	    -ms-transform: translateY(-50%);
+	    -o-transform: translateY(-50%);
+	    -moz-transform: translateY(-50%); 
+	    -webkit-transform: translateY(-50%);
+	}/*右边按钮居中对齐的样式*/
+	.search_right {
+	    float:left;
+	    height:32px;
+	    width: 70px;
+	    color: #fff;
+	    background-color: #f05654;
+	    border: 2px solid #f05654;
+	}
+	.search_right:hover {
+	    background-color: #f06545;
+	    border: 2px solid #f06545;
+	    cursor:pointer;
+	}
+	.search_left {
+	    float:left;height:30px;
+	}
+	.search_left input {
+		height:100%;
+		width: 300px;
+	    border:2px solid #f05654;padding-left:10px;
+	}
+	.search_area {
+	    padding: 25px 0px;
+	}
+	.search_icon {
+	    margin-left: 5px;
+	}
 
-.triangle_border_down{
-    width: 0;
-    height: 0;
-    border-width: 15px 15px 0;
-    border-style: solid;
-    border-color: #DDD transparent transparent;
-    clear: left;
-    position: relative;
-    margin-left: 40px;
-    margin-bottom: 10px;
-}
-.triangle_border_down span{
-    display: block;
-    width: 0;
-    height: 0;
-    border-width: 29px 29px 0;
-    border-style: solid;
-    border-color: #F5F5F5 transparent transparent;
-    position: absolute;
-    top: -31px;
-    left: -28px;
-}
+	.triangle_border_down{
+	    width: 0;
+	    height: 0;
+	    border-width: 15px 15px 0;
+	    border-style: solid;
+	    border-color: #DDD transparent transparent;
+	    clear: left;
+	    position: relative;
+	    margin-left: 40px;
+	    margin-bottom: 10px;
+	}
+	.triangle_border_down span{
+	    display: block;
+	    width: 0;
+	    height: 0;
+	    border-width: 29px 29px 0;
+	    border-style: solid;
+	    border-color: #F5F5F5 transparent transparent;
+	    position: absolute;
+	    top: -31px;
+	    left: -28px;
+	}
 
-.clip{
-	height: 50px;
-	line-height: 50px;
-	position: absolute;
-	clip: rect(0 auto 35px 10px);
-	background: #eee;
-}
+	.clip{
+		height: 50px;
+		line-height: 50px;
+		position: absolute;
+		clip: rect(0 auto 35px 10px);
+		background: #eee;
+	}
 /*search css end*/
+
+/*textStyle css start*/
+	.text-style{
+		max-width: 818px;
+		margin: 20px auto;
+		font-size: 16px;
+		font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+	}
+	.text-style p{
+		padding: 15px;
+	}
+	.text-style .1st{
+		text-indent: 2em;
+	}
+	.text-style .2ed{
+		text-indent: -5em;
+		padding-left: 5em;
+	}
+	.text-style .3rd{
+		/*文本两端对齐wenben*/
+		text-align: justify;  
+	}
+	.text-style .4th{
+		/*文本间的距离*/
+		word-spacing: 5px;
+	}
+	.text-style .5th{
+		/*文本间的距离*/
+		word-spacing: -5px;
+	}
+	.text-style .6th{
+		text-decoration: blink;
+	}
+	.text-style .7th{
+		text-decoration: underline overline blink;
+	}
+	.text-style .8th{
+		/*不能换行*/
+		white-space: nowrap;
+	}
+	.text-style .9th{
+		/*改变文字方向的前提*/
+		unicode-bidi: embed;
+		/*文字方向*/
+		direction: rtl;
+	}
+	.text-style .10th{
+		/*改变文字方向的前提*/
+		unicode-bidi: bidi-override;
+		/*文字方向*/
+		direction: ltr;
+	}
+	.text-style .11th{
+		text-transform: uppercase;
+	}
+	.text-style .11th{
+		text-transform: lowercase;
+	}
+	.text-style .11th{
+		text-transform: capitalize;
+	}
+/*textStyle css end*/
+
