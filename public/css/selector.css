@@ -423,7 +423,54 @@ ul+li{
 		bottom: 0;
 		margin: auto;
 	}
-/*picture center and middle css end*/	
+/*picture center and middle css end*/
+
+/*img width style start	*/
+	.imgauto{
+		margin: 3px;
+		border: 1px solid #bebebe;
+		height: auto;
+		width: auto;
+		float: left;
+		text-align: center;
+		position: relative;
+	}
+	.imgauto img{
+		display: inline;
+		margin: 3px;
+		border: 1px solid #bebebe;
+	}
+	.desc{
+		text-align: center;
+		font-weight: normal;
+		width: 150px;
+		font-size: 12px;
+		margin: 10px 5px;
+	}
+/*img width style end*/
+
+/*img opcity style start*/
+	.opcitybg{
+		width: 400px;
+		height: 266px;
+		background: url(../img/3.jpg);
+		border: 1px solid black;
+	}
+	.transbox{
+		width: 338px;
+		height: 204px;
+		margin: 30px;
+		background-color: #fff;
+		border: 1px solid black;
+		filter: alpha(opcity=60);
+		opacity: 0.6;
+	}
+	.transbox p{
+		margin: 30px 40px;
+	}
+/*img opcity style end*/
+
+
 
 /*search css start*/
 	.search_btn {
@@ -557,4 +604,3 @@ ul+li{
 		text-transform: capitalize;
 	}
 /*textStyle css end*/
-
