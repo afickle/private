@@ -117,6 +117,106 @@ ul+li{
 	}
 /* nav css end */
 
+/*navline css start*/
+.navline{
+	display: block;
+	background: #efefef;
+	width: 90%;
+	margin: 15px auto;
+	border-top: 2px solid #0179c6;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+	overflow: hidden;
+	position: relative;
+	font-size: 0;
+	text-align: center;
+	white-space: nowrap;
+}
+.navline:hover > .current{
+	color: #333;
+}
+.navline .slider{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #0179c6;
+	height: 100%;
+	width: 20%;
+	font-size: 1.2rem;
+	min-width: 4.25em;
+	z-index: 3;
+	transition: .3s;
+}
+.year{
+	width: 20%;
+	min-width: 4.25rem;
+	font-size: 1.25rem;
+	display: inline-block;
+	padding: .75em 0em;
+	cursor: pointer;
+	position: relative;
+	z-index: 5;
+	transition: .3s;
+}
+.year:nth-child(1).current ~ .slider{
+	transform: translateX(0);
+}
+.year:nth-child(2).current ~ .slider {
+  	transform: translateX(100%);
+}
+.year:nth-child(3).current ~ .slider {
+  	transform: translateX(200%);
+}
+.year:nth-child(4).current ~ .slider {
+  	transform: translateX(300%);
+}
+.year:nth-child(5).current ~ .slider {
+  	transform: translateX(400%);
+}
+.year:nth-child(1):hover ~ .slider {
+  	transform: translateX(0);
+}
+.year:nth-child(2):hover ~ .slider {
+  	transform: translateX(100%);
+}
+.year:nth-child(3):hover ~ .slider {
+  	transform: translateX(200%);
+}
+.year:nth-child(4):hover ~ .slider {
+  	transform: translateX(300%);
+}
+.year:nth-child(5):hover ~ .slider {
+  	transform: translateX(400%);
+}
+.year:hover{
+	color: #fff;
+}
+.year.current{
+	color: #fff;
+}
+.year.current:hover{
+	color: #fff;
+}
+@media (max-width: 667px) {
+  	.container {
+    	overflow-X: auto;
+  	}
+  	.container:hover .current {
+    	color: #FFF !important;
+  	}
+
+  	.year.current {
+    	background: #0179C6;
+  	}
+  	.year:not(.current):hover {
+    	color: #000;
+  	}
+
+  	.slider {
+    	display: none;
+  	}
+}
+/*navline css end*/
+
 /* border linear style */
 	.product{
 		padding: 15px;
