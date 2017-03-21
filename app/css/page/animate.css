@@ -1,0 +1,161 @@
+/*jump*/
+#animationDiv {
+    width: 10px;
+    height: 10px;
+    background-color: #21C1B4;
+}
+.animation1 {
+    animation: upin 2s ease;
+    -webkit-animation: upin 2s ease;
+}
+.animation2 {
+    animation:beat .93s infinite ease ;
+    -webkit-animation:beat .93s infinite ease ;
+}
+
+.container{
+    margin: 25px auto 0;
+}
+.container p{
+    text-align: center;
+    color: #AFB5B3;
+    font-size: 3em;
+    -webkit-animation: Glow 1.5s ease infinite alternate;
+    animation: Glow 1.5s ease infinite alternate;
+    transition: all 1.5s ease;
+}
+
+.triger{
+    width: 0;
+    height: 0;
+    border:20px solid;
+    border-color: #00a67c #333;
+}
+
+.border {
+    width: 0;
+    height: 0;
+    border: 0px solid;
+    border-color: #00a67c #333;
+    float: left;
+    margin-left: 10px;
+}
+.border1 {
+    border-left-width: 80px;
+    border-top-width: 80px;
+}
+.border2 {
+    border-left-width: 80px;
+    border-bottom-width: 80px;
+}
+.border3 {
+    border-right-width: 80px;
+    border-top-width: 80px;
+}
+.border4 {
+    border-right-width: 80px;
+    border-bottom-width: 80px;
+}
+
+.layer {
+    width: 40px;
+    height: 40px;
+    margin: 40px auto 0;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.width{
+    width: 40px;
+    height: 40px;
+    background-color: #00a67c;
+}
+.layer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0px solid;
+    border-color: rgba(0, 0, 0, 0.2) #fff;
+    -webkit-transition: border .5s ease;
+    border-right-width: 20px;
+    border-bottom-width: 20px 
+}
+
+.loading {
+    width: 80px;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+}
+span {
+    width: 4px;
+    height: 20px;
+    background-color: #ccc;
+    position: absolute;
+    left: 38px;
+    -webkit-animation: loading 1s infinite;
+}
+.line1 {
+    background-color: #000;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-animation-delay: .3s;
+}
+.line2 {
+    top: 5px;
+    left: 52px;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-animation-delay: .4s;
+}
+.line3 {
+    top: 18px;
+    left: 57px;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-animation-delay: .5s;
+}
+.line4 {
+    top: 31px;
+    left: 52px;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    -webkit-animation-delay: .6s;
+}
+.line5 {
+    top: 37px;
+    -webkit-animation-delay: .7s;
+}
+.line6 {
+    top: 32px;
+    left: 24px;
+    -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+    -webkit-animation-delay: .8s;
+}
+.line7 {
+    top: 18px;
+    left: 19px;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-animation-delay: .9s;
+}
+.line8 {
+    top: 5px;
+    left: 24px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-animation-delay: 1s;
+}
+@-webkit-keyframes loading {
+    0% {
+        background-color: #ccc;
+    }
+    50% {
+        background-color: #000;
+    }
+    100% {
+        background-color: #ccc;
+    }
+}

@@ -1,0 +1,61 @@
+/*textStyle css start*/
+.text-style{
+	max-width: 818px;
+	margin: 20px auto;
+	font-size: 16px;
+	font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+}
+.text-style p{
+	padding: 15px;
+}
+.text-style .1st{
+	text-indent: 2em;
+}
+.text-style .2ed{
+	text-indent: -5em;
+	padding-left: 5em;
+}
+.text-style .3rd{
+	/*文本两端对齐wenben*/
+	text-align: justify;  
+}
+.text-style .4th{
+	/*文本间的距离*/
+	word-spacing: 5px;
+}
+.text-style .5th{
+	/*文本间的距离*/
+	word-spacing: -5px;
+}
+.text-style .6th{
+	text-decoration: blink;
+}
+.text-style .7th{
+	text-decoration: underline overline blink;
+}
+.text-style .8th{
+	/*不能换行*/
+	white-space: nowrap;
+}
+.text-style .9th{
+	/*改变文字方向的前提*/
+	unicode-bidi: embed;
+	/*文字方向*/
+	direction: rtl;
+}
+.text-style .10th{
+	/*改变文字方向的前提*/
+	unicode-bidi: bidi-override;
+	/*文字方向*/
+	direction: ltr;
+}
+.text-style .11th{
+	text-transform: uppercase;
+}
+.text-style .11th{
+	text-transform: lowercase;
+}
+.text-style .11th{
+	text-transform: capitalize;
+}
+/*textStyle css end*/

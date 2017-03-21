@@ -1,0 +1,50 @@
+html, body{
+	height: 100%;
+}
+
+body{
+	align-items: center;
+	background: black;
+	display: flex;
+	font: 10vm/1 "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	justify-content: center;
+}
+
+.clip-text{
+	background-image: url(../../images/3.jpg);
+	font-weight: bold;
+	display: inline-block;
+	margin: .25em;
+	padding: .5em .75em;
+	text-align: center;
+	color: white;
+	user-select: none;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.clip-text:before,
+.clip-text:after {
+	position: absolute;
+	content: "";
+}
+
+.clip-text:before{
+	z-index: -2;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-image: inherit;
+}
+
+.clip-text:after{
+	position: absolute;
+	z-index: -1;
+	top: .125em;
+	right: .125em;
+	left: .125em;
+	bottom: .125em;
+	background-color: #000;
+}

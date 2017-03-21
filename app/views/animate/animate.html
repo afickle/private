@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>animate</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./../../css/comm.css">
+	<link rel="stylesheet" type="text/css" href="./../../css/comm/animate.css">
+	<link rel="stylesheet" type="text/css" href="./../../css/page/animate.css">
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<!-- 类似下拉动画效果 -->
+    <div id="animationDiv" class="animation1"></div>
+
+    <!-- 字体发光效果 -->
+    <div class="container">
+        <p>ayfickle for you !</p>
+    </div>
+
+    <!-- <div class="triger"></div>
+    <div class="border border1"></div>
+    <div class="border border2"></div>
+    <div class="border border3"></div>
+    <div class="border border4"></div> -->
+
+    <div class="layer" id="image-layer">
+        <div class="width"></div>
+    </div>
+
+
+
+    <!-- 加载中动画效果 -->
+    <div class="loading">
+        <span class="line1"></span>
+        <span class="line2"></span>
+        <span class="line3"></span>
+        <span class="line4"></span>
+        <span class="line5"></span>
+        <span class="line6"></span>
+        <span class="line7"></span>
+        <span class="line8"></span>
+    </div>
+
+    <script type="text/javascript">
+	    var animationDiv = $("#animationDiv");
+	    animationDiv.bind("webkitAnimationEnd", function() {
+	        animationDiv.removeClass("animation1");
+	        animationDiv.addClass("animation2");
+	    });
+    </script>
+</body>
+</html>
