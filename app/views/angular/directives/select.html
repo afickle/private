@@ -5,9 +5,12 @@
 	<meta charset="utf-8">
     <!-- css file -->
     <link rel="stylesheet" type="text/css" href="./../../../lib/bootstrap/dist/css/bootstrap.min.css">
-    <!-- js file -->
+    <link rel="stylesheet" type="text/css" href="./../../../css/directives/ayAutoinput.css">
+    <!-- js lib file -->
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="./../../../lib/angular/angular.min.js"></script>
+    <script src="./../../../lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <!-- js file -->
     <script src="./../../../scripts/directives/common.js"></script>
     <script src="./../../../scripts/directives/ayAutoinput.js"></script>
     <script src="./../../../scripts/controllers/select.js"></script>
@@ -22,13 +25,26 @@
                     <div class="suggest-box" ay-autoinput="ac_options">
                         <input type="text" name="select1" class="form-control col-xs-9" ng-model="data.select1">
                     </div>
+                    <!-- <span class="ay-trigger" ng-transclude></span>
+                    <div ng-show="data.results.length" class="ay-container">
+                        <ul class="ay-menu">
+                            <li class="ay-menu-item" ng-repeat="result in data.results" id="{{result.id}}" role="option" ng-class="$index == selected_index ? 'ac-state-focus': ''">
+                                <a href ng-click="select($index)" ng-bind-html="result.label"></a>
+                            </li>
+                        </ul>
+                    </div> -->
                 </div>
             </div>
         </div>
         <div>
+            <h2>none-transclude</h2>
+            <none-transclude>
+                <div>I'm the inner element of none-transclude</div>
+            </none-transclude>
+
             <h2>one-transclude</h2>
             <one-transclude>
-                <div>I'm the inner element of one-transclude</div>
+                <div>I'm the element of one-transclude</div>
             </one-transclude>
             <!-- <div> 
                 <h3>one-inner-translude</h3> 
