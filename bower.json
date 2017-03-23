@@ -1,0 +1,27 @@
+{
+  "name": "private",
+  "description": "Just for personal practise.",
+  "main": "server.js",
+  "authors": [
+    "fickle"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "private",
+    "personal",
+    "exercise"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "bootstrap": "^3.3.7"
+  }
+}

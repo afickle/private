@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>react</title>
+	<meta charset="utf-8">
+    <!-- css file -->
+    <link rel="stylesheet" type="text/css" href="./../../../lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- js file -->
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./../../../lib/angular/angular.min.js"></script>
+    <script src="./../../../scripts/directives/common.js"></script>
+    <script src="./../../../scripts/directives/ayAutoinput.js"></script>
+    <script src="./../../../scripts/controllers/select.js"></script>
+</head>
+    
+<body>
+ 	<div ng-controller="myController" class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group">
+                    <span class="input-group-addon">select1</span>
+                    <div class="suggest-box" ay-autoinput="ac_options">
+                        <input type="text" name="select1" class="form-control col-xs-9" ng-model="data.select1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>one-transclude</h2>
+            <one-transclude>
+                <div>I'm the inner element of one-transclude</div>
+            </one-transclude>
+            <!-- <div> 
+                <h3>one-inner-translude</h3> 
+                <div>I'm the info of one-transclude</div>
+                <ng-transclude>I'm the inner element info of one-transclude</ng-transclude> 
+            </div> -->
+
+            <h2>multi-transclude</h2>
+            <multi-transclude>
+                <multi-transclude-title>I'm the title</multi-transclude-title>
+                <multi-transclude-body>I'm the body</multi-transclude-body>
+                <multi-transclude-footer>I'm the footer</multi-transclude-footer>
+            </multi-transclude>
+            <!-- <div> 
+                <div ng-transclude="title"></div> 
+                <div>ignore me please, I'm just improve inner 1</div> 
+                <div ng-transclude="body"></div> 
+                <div>ignore me please, I'm just improve inner 2</div> 
+                <div ng-transclude="footer"></div> 
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>

@@ -43,3 +43,11 @@ Examples for personal practice and my exercises.
 
 ### react
 > must open with node or other server
+
+## stationary for angular
+### directives
+#### focus
+> a demo for enter event and change the element's fucus
+
+#### select
+> for auto complete and ng-transclude
