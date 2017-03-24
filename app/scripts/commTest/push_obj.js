@@ -6,7 +6,7 @@ var obj = {
 	}
 };
 
-obj.addElem({});
-obj.addElem({});
+obj.addElem({'id': 1});
+obj.addElem({'id': 2});
 
 console.log(obj.length);

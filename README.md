@@ -50,4 +50,9 @@ Examples for personal practice and my exercises.
 > a demo for enter event and change the element's fucus
 
 #### select
-> for auto complete and ng-transclude
+> for auto complete and ng-transclude 
+  there is sth wrong with this directive, I'll fix it later.
+
+#### table
+> to define custome table head 
+  there is sth wrong with this directive, I'll fix it later.
