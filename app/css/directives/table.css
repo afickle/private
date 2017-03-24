@@ -1,0 +1,32 @@
+.modal-custom-fields .modal-title {
+    font-size: 16px;
+}
+
+.modal-custom-fields label {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+    padding: 5px 20px;
+}
+
+.modal-custom-fields i {
+    width: 18px;
+}
+
+.modal-custom-fields input[type=checkbox] + i.fa:before {
+    content: "\f096";
+    font-size: 15px;
+}
+
+.modal-custom-fields input[type=checkbox]:checked + i.fa:before {
+    content: "\f046";
+    color: #138ed4;
+}
+
+.modal-custom-fields p {
+    padding: 10px;
+    vertical-align: middle;
+    color: #264663;
+    border: 1px solid #7AB1DE;
+    background: #D2E7F7;
+}

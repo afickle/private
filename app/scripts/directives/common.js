@@ -1,4 +1,4 @@
-var app = angular.module('comm', []);
+var app = angular.module('commDir', []);
 
 app.directive('onKeyenter', function() {
     return function(scope, element, attr) {

@@ -1,6 +1,6 @@
-var app = angular.module('myApp', ['autoinput', 'ngSanitize']);
+var app = angular.module('myApp', ['autoinput', 'ngSanitize', 'commSev']);
 
-app.controller('myController', ['$timeout', '$scope', function($timeout, vm) {
+app.controller('myController', ['$timeout', '$scope', 'ay', function($timeout, vm, ay) {
 	var data = {};
 	var page = {
 		verify: {
@@ -35,6 +35,9 @@ app.controller('myController', ['$timeout', '$scope', function($timeout, vm) {
 	}
 
 	function suggestData(key) {
+		return ay.get('account/updatePassword').then(function(resp) {
+            return formatSuggest(resp.returnVal);
+        })
         return formatSuggest(data.results);
     }
 

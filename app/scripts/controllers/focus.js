@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['comm']);
+var app = angular.module('myApp', ['commDir']);
 
 app.controller('myController', ['$timeout', '$scope', function($timeout, vm) {
 	var data = {};

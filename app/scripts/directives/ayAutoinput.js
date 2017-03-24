@@ -52,7 +52,7 @@ app.directive('multiTransclude', function() {
 app.run(['$templateCache', function($templateCache) {
 	$templateCache.put('template/common/autoComplete.html',
 					'<span class="ay-trigger" ng-transclude></span>'
-                    + '<div ng-show="data.results.length" class="ay-container">'
+                    + '<div ng-show="isShow && data.results.length" class="ay-container">'
                         + '<ul class="ay-menu">'
                             + '<li class="ay-menu-item" ng-repeat="result in data.results" id="{{result.id}}" role="option" ng-class="$index == selected_index ? \'ay-state-focus\': \'\'">'
                                 + '<a href ng-click="select($index)" ng-bind-html="result.label"></a>'
@@ -151,6 +151,7 @@ app.directive('ayAutoinput', function($timeout, $q, $document, $parse, debounce)
 			})
 
 			function suggest_(key) {
+				console.log(key)
 				$scope.selected_index = 0;
 				$scope.waiting = true;
 
@@ -252,8 +253,9 @@ app.directive('ayAutoinput', function($timeout, $q, $document, $parse, debounce)
 				selected = $scope.results[i];
 
 				if (angular.isFunction(options.select)) {
+					console.log(row)
 					if (row) {
-						options,select(selected, row);
+						options.select(selected, row);
 					}
 					else {
 						options.selected(selected);

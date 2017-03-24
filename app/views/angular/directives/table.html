@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>table</title>
+	<meta charset="utf-8">
+    <!-- css file -->
+    <link rel="stylesheet" type="text/css" href="./../../../lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./../../../css/directives/table.css">
+    <!-- js lib file -->
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./../../../lib/angular/angular.min.js"></script>
+    <script src="./../../../lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <!-- js file -->
+    <script src="./../../../scripts/directives/customeFields.js"></script>
+    <script src="./../../../scripts/controllers/table.js"></script>
+</head>
+    
+<body>
+ 	<div ng-controller="myController">
+        <div class="modal fade in modal-custom-fields" style="display:block;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" ng-click="close(false)"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">自定义字段</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>请选择您想要{{data.tip}}的字段信息</p>
+                        <div class="row">
+                            <label class="col-sm-4" ng-repeat="row in page.fields">
+                                <input type="checkbox" class="hide" ng-model="row.display"> 
+                                    <i class="fa"></i> 
+                                    <span ng-bind="row.value"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer text-center">
+                            <button class="btn btn-primary pull-center" ng-click="close(true)">确定</button> 
+                            <button class="btn btn-default pull-center" ng-click="close(false)">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <button class="btn btn-op" custome-fields="page.fields"><i class="fa fa-gear fa-only"></i></button> -->
+        <button class="btn btn-op"><i class="fa fa-gear fa-only"></i></button>
+        <table class="table table-bordered table-striped" ng-table-check>
+            <thead>
+                <tr>
+                    <th>
+                        <label>
+                            <input type="checkbox" ng-model="paras.checkall" />
+                            <i class="fa"></i>
+                        </label>
+                    </th>
+                    <th ng-repeat="row in page.fields | filter: {display:true}">{{row.value}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="nodata">
+                        <span>暂无数据</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
