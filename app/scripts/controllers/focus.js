@@ -13,6 +13,8 @@ app.controller('myController', ['$timeout', '$scope', function($timeout, vm) {
 	vm.page = page;
 	vm.change = change;
 
+	console.log(document.baseURI);
+
 	// change input focus
 	function change(type) {
 		if (type == 1) {

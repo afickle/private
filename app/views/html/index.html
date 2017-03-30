@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<base href="./../../" target="_blank">
+	<title>index</title>
+</head>
+<body>
+	<abbr title="United Kingdom">UK</abbr>
+	<map name="primary">
+		<area shape="circle" coords="200,250,25" href="obsolete.html" />
+		<area shape="default" nohref />
+	</map>
+
+	<article>
+		<header>
+			<h2>Jurassic Park</h2>
+		</header>
+		<section>
+			<p>Dinos were great!</p>
+		</section>
+		<section>
+			<article>
+				<p>Way too scary for me!</p>
+				<footer>
+					<p>
+						Posted on <time datetime="2017-03-28 15:00">May 16</time> by Lisa.
+					</p>
+				</footer>
+			</article>
+			<article>
+				<p>I agree, dinos are my favorite</p>
+				<footer>
+					<p>
+						Posted on <time datetime="2017-03-29 15:00">May 17</time> by Tom.
+					</p>
+				</footer>
+			</article>
+		</section>
+		<footer>
+			<p>
+				Posted on <time datetime="2017-03-25 15:00">May 15</time> by Staff.
+			</p>
+		</footer>
+		<aside>
+	    	The movie earned $87 million during its initial release.
+	  	</aside>
+	</article>
+
+	<p dir="ltr">This arabic word <bdi>ARABIC_PLACEHOLDER</bdi> is automatically displayed right-to-left.</p>
+
+	<p>This text will go left to right.</p>
+	<p><bdo dir="rtl">This text will go right to left.</bdo></p>
+
+	<p>
+	  	This is the first sentence. 
+	  	<big>This whole sentence is in bigger letters.</big>
+	</p>
+
+	<p>
+	  	This is the first sentence. 
+	  	<span style="font-size:1.2em">This whole sentence is in bigger letters.</span>
+	</p>
+
+	<blink>Why would somebody use this?</blink>
+
+	<blockquote cite="http://developer.mozilla.org">
+  		<p>This is a quotation taken from the Mozilla Developer Center.</p>
+  		<cite>asdhf</cite>
+	</blockquote>
+
+	<q><cite>[ISO-0000]</cite></q>
+
+	<p>Regular text. <code>This is code.</code> Regular text.</p>
+
+	<!-- <command type="command" label="Save" icon="icons/save.png" onclick="save()"> -->
+
+	<p>新产品</p>
+	<ul>
+ 		<li><data value="3967381398">迷你番茄酱</data></li>
+ 		<li><data value="3967381399">巨无霸番茄酱</data></li>
+ 		<li><data value="3967381400">超级巨无霸番茄酱</data></li>
+	</ul>
+
+	<label>Choose a browser from this list:
+		<input list="browsers" name="myBrowser" />
+	</label>
+	<datalist id="browsers">
+	  	<option value="Chrome">
+	  	<option value="Firefox">
+	  	<option value="Internet Explorer">
+	  	<option value="Opera">
+	  	<option value="Safari">
+	</datalist>
+
+	<dl>
+		<dd>1</dd>
+		<dd>2</dd>
+	</dl>
+
+	<p><del>This text has been deleted</del>, here is the rest of the paragraph.</p>
+	<del ><p >This paragraph has been deleted.</p ></del >
+
+	<details>
+		<summary>Some details</summary>
+		<p>More info about the details</p>
+	</details>
+
+	<p><dfn id="defnternet">The Internet</dfn> is a global system of interconnected networks that use the Internet Protocol Suite (TCP/IP) to serve billions of users worldwide.</p>
+
+	<dl>
+  		<!-- Define "World-Wide Web" and reference definition for "the Internet" -->
+  		<dt>
+    		<dfn>
+      			<abbr title="World-Wide Web">WWW</abbr>
+    		</dfn>
+  		</dt>
+  		<dd>The World-Wide Web (WWW) is a system of interlinked hypertext documents accessed on <a href="#defnternet">the Internet</a>.</dd>
+	</dl>
+
+	<dialog open>
+  		<p>Greetings, one and all!</p>
+	</dialog>
+
+	<!-- Simple pop-up dialog box, containing a form -->
+	<dialog id="favDialog">
+	  	<form method="dialog">
+		    <section>
+		      	<p><label for="favAnimal">Favorite animal:</label>
+		      	<select id="favAnimal">
+			        <option></option>
+			        <option>Brine shrimp</option>
+			        <option>Red panda</option>
+			        <option>Spider monkey</option>
+		      	</select></p>
+		    </section>
+		    <menu>
+		      	<button id="cancel" type="reset">Cancel</button>
+		      	<button type="submit">Confirm</button>
+		    </menu>
+	  	</form>
+	</dialog>
+	<menu>
+	  <button id="updateDetails">Update details</button>
+	</menu>
+
+	<div>
+	  	<p>这里可以是任何内容，比如 &lt;p&gt;, &lt;table&gt;，一切由你作主。</p>
+	</div>
+
+	<element>Text goes here!</element>
+
+	<p><em>1着重强调其内容</em></p>
+	
+	<p><i>Marry从正常的散文中区分出的文本</i></p>
+
+	
+
+	<!-- <canvas></canvas> -->
+
+	<script type="text/javascript">
+		/*var link = document.createElement('a');
+		link.innerHTML = 'download image';
+
+		link.addEventListener('click', function(ev) {
+			link.href = canvas.toDataURL();
+			link.download = "test.png";
+		}, false);
+
+		document.body.appendChild(link);*/
+
+		// just chrome google
+		(function() {
+		  var updateButton = document.getElementById('updateDetails');
+		  var cancelButton = document.getElementById('cancel');
+		  var favDialog = document.getElementById('favDialog');
+
+		  // Update button opens a modal dialog
+		  updateButton.addEventListener('click', function() {
+		    favDialog.showModal();
+		  });
+
+		  // Form cancel button closes the dialog box
+		  cancelButton.addEventListener('click', function() {
+		    favDialog.close();
+		  });
+		})();
+	</script>
+</body>
+</html>

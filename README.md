@@ -35,6 +35,10 @@ Examples for personal practice and my exercises.
 #### width_eq_height
 > width equals height
 
+#### saveCanvas
+> draw with canvas and then save with tag a
+  this should be considered with document.ready && window.load
+
 ### comment
 > an example for comments with react jsx
 
