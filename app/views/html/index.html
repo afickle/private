@@ -2,8 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<!-- Defining the charset in HTML4 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- Redirect page after 3 seconds -->
+	<!-- <meta http-equiv="refresh" content="3;url=http://www.mozilla.org/"> -->
 	<base href="./../../" target="_blank">
 	<title>index</title>
+	<isindex prompt="Search Document... " />
 </head>
 <body>
 	<abbr title="United Kingdom">UK</abbr>
@@ -154,7 +159,144 @@
 	
 	<p><i>Marry从正常的散文中区分出的文本</i></p>
 
-	
+	<form>
+		<input type="text" name="">
+		<input type="week" name="">
+		<input type="date" name="">
+		<input type="time" name="">
+		<input type="datetime" name="">
+		<input type="datetime-local" name="">
+		<input type="file" accept=".jpg, .png, image/*" name="">
+		<input type="reset" name="">
+	</form>
+
+	<ins>这一段文本是新插入至文档的。</ins>
+
+	<p>Type the following in the Run dialog: <kbd>cmd</kbd><br />Then click the OK button.</p>
+
+	<p>Save the document by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
+
+	<p>Save <samp><kbd>Ctrl</kbd> + <kbd>S</kbd></samp></p>
+
+	<keygen name="name" challenge="challenge string" keytype="type" keyparams="pqg-params">
+
+	<keygen name="name" challenge="challenge string" keytype="type" pqg="pqg-params">
+
+	<label>Click me <input type="text" id="User" name="User" /></label>
+
+	<label for="Name">Click me</label>
+	<input type="text" id="Name" name="Name" />
+
+	<p>&lt;mark&gt; 元素用于 <mark>highlight</mark> 文本</p>
+
+	<p>Heat the oven to <meter min="200" max="500" value="350">350 degrees</meter>.</p>
+
+	<p>He got a <meter low="69" high="80" max="100" value="84">B</meter> on the exam.</p>
+
+	<button type="menu" menu="dropdown-menu">
+  		Dropdown
+	</button>
+
+	<menu type="context" id="dropdown-menu">
+	  	<menuitem label="Action">
+	  	<menuitem label="Another action">
+	  	<hr>
+	  	<menuitem label="Separated action">
+	</menu>
+
+	<!-- A context menu for a simple editor, containing two menu buttons. -->
+	<menu>
+	    <li>
+	        <button type="menu" value="File" menu="file-menu"></button>
+	        <menu type="context" id="file-menu">
+	            <menuitem label="New..." onclick="newFile()">
+	            <menuitem label="Save..." onclick="saveFile()">
+	        </menu>
+	    </li>
+	    <li>
+	        <button type="menu" value="Edit" menu="edit-menu"></button>
+	        <menu type="context" id="edit-menu">
+	            <menuitem label="Cut..." onclick="cutEdit()">
+	            <menuitem label="Copy..." onclick="copyEdit()">
+	            <menuitem label="Paste..." onclick="pasteEdit()">
+	        </menu>
+	    </li>
+	</menu>
+
+	<nav>
+	  	<ul>
+		    <li><a href="#">Home</a></li>
+		    <li><a href="#">About</a></li>
+		    <li><a href="#">Contact</a></li>
+	  	</ul>
+	</nav>
+
+	<frameset cols="50%,50%">
+	  	<frame src="https://developer.mozilla.org/en/HTML/Element/frameset" />
+	  	<frame src="https://developer.mozilla.org/en/HTML/Element/frame" />
+	  	<noframes><p>It seems your browser does not support frames or configured to does not so.</p></noframes>
+	</frameset>
+
+	<!-- Embed a flash movie -->
+	<object data="move.swf" type="application/x-shockwave-flash"></object>
+
+	<!-- Embed a flash movie with parameters -->
+	<object data="move.swf" type="application/x-shockwave-flash">
+	  	<param name="foo" value="bar">
+	</object>
+
+	<ol type="I">
+	  	<li>first item</li>
+	  	<li>second item      
+	  	<!-- Look, the closing </li> tag is not placed here! -->
+	    <ol>
+		    <li>second item first subitem</li>
+		    <li>second item second subitem</li>
+		    <li>second item third subitem</li>
+	    </ol>
+	  	</li>                <!-- Here is the closing </li> tag -->
+	  	<li contenteditable="true">third item</li>
+	</ol>
+
+	<select>
+	  	<optgroup label="Group 1">
+	    	<option>Option 1.1</option>
+	  	</optgroup> 
+	  	<optgroup label="Group 2">
+	    	<option>Option 2.1</option>
+	    	<option>Option 2.2</option>
+	  	</optgroup>
+	  	<optgroup label="Group 3" disabled>
+		    <option>Option 3.1</option>
+		    <option>Option 3.2</option>
+		    <option>Option 3.3</option>
+	  	</optgroup>
+	</select>
+
+	<label draggable="true">Example Label</label>
+
+	<div>test</div>
+
+	<dl itemscope itemtype="http://vocab.example.net/book"
+    itemid="urn:isbn:0-330-34032-8">
+		<dt>Title</dt> <dd itemprop="title">The Reality Dysfunction</dd>
+		<dt>Author</dt> <dd itemprop="author">Peter F. Hamilton</dd>
+		<dt>Publication date</dt>
+		<dd>
+			<time itemprop="pubdate" datetime="1996-01-26">26 January 1996</time>
+		</dd>
+	</dl>
+
+	<p>Newlines in title should be taken into account,like this <abbr title="This is amultiline title">example</abbr>.</p>
+
+	<div itemscope itemtype ="http://schema.org/Movie">
+	  	<h1 itemprop="name">Avatar</h1>
+	  	<span>Director:
+	    	<span itemprop="director">James Cameron</span>(born August 16, 1954)
+	    </span>
+  		<span itemprop="genre">Science fiction</span>
+  		<a href="../movies/avatar-theatrical-trailer.html" itemprop="trailer">Trailer</a>
+	</div>
 
 	<!-- <canvas></canvas> -->
 
