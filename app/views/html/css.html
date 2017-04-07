@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>css</title>
+	<link rel="stylesheet" type="text/css" href="./../../css/html/css.css">
+</head>
+<body>
+	<h1>title</h1>
+	<img src="./../../images/3.jpg">
+	<!-- <img src="./../images/3.jpg" alt="3.jpg"> -->
+	<div>
+		<p>this is p</p>
+		<span>first p ~ span<span> first inside<span> first inside inside</span></span></span>
+		<span>second p ~ span</span>
+		<h1><p>p in h1</p></h1>
+	</div>
+	<p>first div + p</p>
+	<p>second div + p</p>
+
+	<ul>
+		<li>first ul > li</li>
+		<li>first ul > li</li>
+		<li>first ul > li</li>
+	</ul>
+
+	<div><a href="#">you guess where</a></div>
+
+	<div class="radio-select">
+		<label>
+			<input type="radio" name="r3">
+			<span>1</span>
+		</label>
+		<label>
+			<input type="radio" name="r3">
+			<span>2</span>
+		</label>
+		<label>
+			<input type="radio" name="r3">
+			<span>3</span>
+		</label>
+		<label>
+			<input type="radio" name="r3">
+			<span>4</span>
+		</label>
+	</div>
+
+	<div class="first-type">
+		<span>1</span>
+		<span>2</span>
+		<span>
+			<em>3</em>?
+		</span>
+		<b>4</b>
+		<span>5</span>
+	</div>
+
+	<div class="fullscreen">
+		<h1>fullscreen demo:</h1>
+		<p>This is will be big when on fullscreen</p>
+		<button class="full-btn">Enter fullscreen</button>
+	</div>
+
+	<div class="disabled-select">
+		<input type="text" name="">
+		<input type="text" name="">
+		<input type="button" id="btn" value="toggle">
+	</div>
+
+	<progress>
+
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		btn.addEventListener('click', function() {
+			// body...
+			var inputs = document.querySelectorAll('.disabled-select input[type="text"]');
+			for(var i = 0; i < inputs.length; i++) {
+				inputs[i].disabled = !inputs[i].disabled;
+			}
+		})
+	</script>
+
+</body>
+</html>
