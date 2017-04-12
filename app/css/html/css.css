@@ -55,6 +55,10 @@ a:active {
 	color: #6951ca;
 }
 
+.first-type :last-of-type {
+	color: #8c1f32;
+}
+
 /*progress*/
 :indeterminate {
   opacity: 0.5;
