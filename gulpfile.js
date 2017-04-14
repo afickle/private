@@ -11,6 +11,7 @@ gulp.task('mytask', ['array', 'name'], function() {
 	// body...
 	gulp.src()
 	.pipe(somePlugin())
+	.pipe(gulp.dest('...'));
 })
 
 // concat
@@ -116,3 +117,23 @@ gulp.task('somename', function() {
 	return stream;
 });
 
+gulp.task('publish', function() {
+	// publish with scp
+    var paras = config.server_test;
+    paras.watch = function(client) {
+        client.on('write', function(o) {
+            console.log('upload %s', o.destination);
+        });
+    }
+
+    return gulp.src([config.dist + '**/*.*'])
+        .pipe(scp(paras))
+        .on('error', function(err) {
+            console.log(err);
+        });
+
+    // publish with ftp
+    // return gulp.src(config.dist + '**/*.*')
+    //     .pipe(ftp(config.server_test))
+    //     .pipe(gutil.noop());  
+});
