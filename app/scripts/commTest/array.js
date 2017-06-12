@@ -36,3 +36,28 @@ arr.reverse()
 arr.reduceRight(callback(previousValue, currentValue, index, array), initialValue])
 
 arr.reduce(callback(accumulator, currentValue, index, array), [initialValue])
+
+arr.push([element1[, ...[, elementN]]])
+
+arr.pop()
+
+arr.map(callback(currentValue, index, array), thisArg])
+
+arr.lastIndexOf(searchElement)
+arr.lastIndexOf(searchElement, fromIndex)
+
+arr.indexOf(searchElement[, fromIndex])
+
+arr.join()
+arr.join(separator)
+
+arr.includes(searchElement)
+arr.includes(searchElement, fromIndex)
+
+var new_arr = arr.concat(value1[, value2[, ...[, valueN]]])
+
+arr.copyWithin(target)
+arr.copyWithin(target, start)
+arr.copyWithin(target, start, end)
+
+JSON.stringify(value[, replacer[, space]])

@@ -3,6 +3,7 @@
 <head>
 	<title>w_eq_h</title>
 	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./../../css/page/layout.css">
 	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <style type="text/css">
         .parent{
@@ -19,6 +20,22 @@
 <body>
  	<div class="parent">
         <div class="children"></div>
+    </div>
+
+    <!-- 圣杯：父盒子包含三个子盒子（左，中，右） -->
+    <div class="content1">
+        <div class="left">left</div>
+        <div class="right">right</div>
+        <div class="middle">middle</div>
+    </div>
+
+    <!-- 双飞翼：父盒子包含三个子盒子（左，中，右），中间的子盒子里再加一个子盒子 -->
+    <div class="content2">
+        <div class="middle">
+            <div class="middle-inner">middle</div>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
     </div>
 </body>
 </html>

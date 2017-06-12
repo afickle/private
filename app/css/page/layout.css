@@ -1,0 +1,42 @@
+.content1 .middle {
+	height: 100px;
+	margin-right: 300px;
+	margin-left: 300px;
+}
+
+.content1 .left {
+	width: 300px;
+	float: left;
+	height: 100px;
+}
+
+.content1 .right {
+	float: right;
+	width: 300px;
+	height: 100px;
+}
+
+.content2 .middle {
+	width: 100%;
+	height: 100px;
+	float: left;
+}
+
+.content2 .middle .middle-inner {
+	margin-left: 300px;
+	margin-right: 300px;
+}
+
+.content2 .left {
+	width: 300px;
+	margin-left: -100%;
+	height: 100px;
+	float: left;
+}
+
+.content2 .right {
+	margin-left: -300px;
+	width: 300px;
+	height: 100px;
+	float: left;
+}
