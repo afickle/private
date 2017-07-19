@@ -1,0 +1,177 @@
+.parent1, .parent2, .parent3, .parent4, .parent5,
+.layout1, .layout2,
+.bg-height {
+	background: #ef5654;
+	color: #fff;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.extra4:after, .layout5:after {
+	display: block;
+	content: '';
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+/*兼容IE*/
+.extra4, .layout5 {
+	zoom: 1;
+}
+/*不定宽块状元素，父元素设置text-align: center，设置子元素为display:inline*/
+.parent1 {
+	text-align: center;
+}
+
+.child1 {
+	display: inline;
+}
+
+/*定宽块状元素，设置左右margin值为auto*/
+.parent2 {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.child2 {
+	width: 300px;
+	margin: 0 auto;
+}
+
+/*flex布局*/
+.parent3 {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+/*子元素为单行内联文本，设置父元素的height等于行高line-height*/
+.parent4 {
+	text-align: center;
+	line-height: 30px;
+}
+
+.parent5 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+	margin-top: 10px;
+}
+
+.layout1, .layout2 {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.layout1 {
+	margin: 10px auto;
+	height: 80px;
+}
+
+.layout2 {
+	margin-bottom: 10px;
+}
+
+/*float+margin，两侧两列固定宽度，中间列自适应宽度*/
+.sub1 {
+	width: 100px;
+	float: left;
+}
+
+.extra1 {
+	width: 200px;
+	float: right;
+}
+
+.main1 {
+	margin-left: 100px;
+	margin-right: 200px;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #fff;
+}
+
+/*position+margin，绝对定位将两侧栏固定，通过外边距给两侧栏，中间列自适应*/
+.layout4 {
+	position: relative;
+}
+
+.sub2, .extra2 {
+	position: absolute;
+	top: 0;
+	width: 200px;
+}
+
+.sub2 {
+	left: 0;
+}
+
+.extra2 {
+	right: 0;
+}
+
+.main2 {
+	margin: 10px 201px;
+	// min-width: 100px;
+}
+
+/*圣杯布局(float + 负margin + padding + position)*/
+.layout5 {
+	padding: 0 100px;
+}
+
+.main3 {
+	float: left;
+	width: calc(100% - 2px);
+	min-width: 100px;
+	margin: 0 1px;
+}
+
+.sub3 {
+	float: left;
+	width: 100px;
+	margin-left: -100%;
+	position: relative;
+	left: -100px;
+}
+
+.extra3 {
+	float: left;
+	width: 100px;
+	margin-left: -100px;
+	position: relative;
+	right: -100px;
+}
+
+/*双飞翼布局(float + 负margin + margin)*/
+.layout6 {
+	float: left;
+	width: 100%;
+}
+
+.sub4 {
+	float: left;
+	width: 100px;
+	margin-left: -100%;
+}
+
+.extra4 {
+	float: left;
+	width: 100px;
+	margin-left: -100px;
+}
+
+.main4 {
+	margin: 0 101px;
+}
+
+.layout7 {
+	display: flex;
+}
+.main5 {
+	flex: 1;
+	margin: 0 1px;
+}
+.extra5 {
+	width: 200px;
+}

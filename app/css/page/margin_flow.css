@@ -1,0 +1,21 @@
+.parent1 {
+	height: 20px;
+	background: #ef9d9c;
+	margin-bottom: 20px;
+}
+
+.parent2 {
+	margin: 20px 0;
+}
+
+.parent3 {
+	height: 20px;
+	background: #f7bcbb;
+	margin-top: 20px;
+}
+
+.child {
+	background: #ffd7d8;
+	height: 20px;
+	margin: 40px 0 30px;
+}
