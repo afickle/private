@@ -1,0 +1,22 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "es6 demos & study",
+  "main": "index.js",
+  "scripts": {
+    "index": "babel-node index.js",
+    /*compile dir*/
+    "build": "babel scripts/module -d scripts/lib"
+  },
+  "keywords": [
+    "es6",
+    "demo"
+  ],
+  "author": "liuying",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
