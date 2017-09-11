@@ -2,6 +2,7 @@ html, body {
 	background: #efefef;
 	text-align: center;
 	min-height: 100%;
+	color: #666;
 }
 
 header, .header {
@@ -42,6 +43,15 @@ header, .header {
 	cursor: pointer;
 }
 
+.items-list ul li.item-done, .items-list ul li .item-done {
+	color: #d6d4d4;
+	text-decoration: line-through;
+}
+
+.items-list ul li.item-done .itme-delete {
+	color: #666;
+}
+
 .items-list ul li:hover {
 	background: #ffe5e5;
 }
@@ -56,7 +66,9 @@ header, .header {
 }
 
 .content-footer div {
+	position: relative;
 	display: inline-block;
+	padding-right: 75px;
 }
 
 .content-btn {
@@ -72,10 +84,17 @@ header, .header {
 
 .content-btn .btn:hover {
 	border: 1px solid #ffe5e5;
+	cursor: pointer;
 }
 
 .content-btn .btn:active, .content-btn .btn:focus{
 	border: 1px solid #f7e8e8;
+}
+
+.content-btn .btn-remove {
+	position: absolute;
+    right: 0;
+    top: 0;
 }
 
 footer, .footer {

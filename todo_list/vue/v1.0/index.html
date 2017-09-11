@@ -12,15 +12,15 @@
 	<div id="app" class="main">
 		<div class="main-input">
 			<span v-if="items.length" class="main-input-check">
-				<input type="checkbox" v-model="checkAll">
+				<input type="checkbox" @click="toggle()" v-model="checkAll">
 			</span>
 			<input type="text" @keyup.enter="addItem()" v-model="item">
 		</div>
 		<div class="items-list">
 			<ul>
-				<li v-for="(item, index) in items">
+				<li v-for="(item, index) in items" :class="{'item-done': item.checked}">
 					<span>
-						<input type="checkbox" v-model="item.check">
+						<input type="checkbox" @click="check(item)" v-model="item.checked">
 					</span>
 					<span>{{ item.text }}</span>
 					<span class="itme-delete" @click="removeItem(index)">x</span>
@@ -32,9 +32,10 @@
 				<span>{{ items.length }}</span> items left
 			</div>
 			<div class="content-btn">
-				<button class="btn">All</button>
-				<button class="btn">Active</button>
-				<button class="btn">Completed</button>
+				<button class="btn" @click="showItems()">All</button>
+				<button class="btn" @click="showActive()">Active</button>
+				<button class="btn" @click="showComplete()">Completed</button>
+				<button class="btn btn-remove" v-if="showAll" @click="removeAll()">Remove</button>
 			</div>
 		</div>
 	</div>
@@ -42,29 +43,6 @@
 		<div>Create By ayfickle</div>
 	</footer> -->
 
-	<script type="text/javascript">
-		var vm = new Vue({
-			el: '#app',
-			data: {
-				items: [
-					{'text': 'item1'},
-					{'text': 'item2'}
-				],
-				checkAll: false,
-				item: ''
-			},
-			methods: {
-				addItem: function() {
-					var obj = {'text': this.item};
-					this.items.push(obj);
-					this.item = '';
-				},
-
-				removeItem: function(index) {
-					this.items.splice(index, 1);
-				}
-			}
-		})
-	</script>
+	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
