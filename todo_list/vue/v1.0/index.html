@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<script src="../app/lib/vue/dist/vue.min.js"></script>
+</head>
+<body>
+	<header class="header">Todo Lists</header>
+	<div id="app" class="main">
+		<div class="main-input">
+			<span v-if="items.length" class="main-input-check">
+				<input type="checkbox" v-model="checkAll">
+			</span>
+			<input type="text" @keyup.enter="addItem()" v-model="item">
+		</div>
+		<div class="items-list">
+			<ul>
+				<li v-for="(item, index) in items">
+					<span>
+						<input type="checkbox" v-model="item.check">
+					</span>
+					<span>{{ item.text }}</span>
+					<span class="itme-delete" @click="removeItem(index)">x</span>
+				</li>
+			</ul>
+		</div>
+		<div v-if="items.length" class="content-footer">
+			<div>
+				<span>{{ items.length }}</span> items left
+			</div>
+			<div class="content-btn">
+				<button class="btn">All</button>
+				<button class="btn">Active</button>
+				<button class="btn">Completed</button>
+			</div>
+		</div>
+	</div>
+	<!-- <footer class="footer">
+		<div>Create By ayfickle</div>
+	</footer> -->
+
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				items: [
+					{'text': 'item1'},
+					{'text': 'item2'}
+				],
+				checkAll: false,
+				item: ''
+			},
+			methods: {
+				addItem: function() {
+					var obj = {'text': this.item};
+					this.items.push(obj);
+					this.item = '';
+				},
+
+				removeItem: function(index) {
+					this.items.splice(index, 1);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

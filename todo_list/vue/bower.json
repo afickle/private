@@ -1,0 +1,25 @@
+{
+  "name": "todo-list-vue",
+  "homepage": "https://github.com/ayfickle/private",
+  "authors": [
+    "fickle <1365818447@qq.com>"
+  ],
+  "description": "a simple todo list with vue",
+  "main": "",
+  "keywords": [
+    "todolist",
+    "vue"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "^2.4.2"
+  }
+}
