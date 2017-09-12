@@ -50,7 +50,7 @@ var app = new Vue({
             handler: function(todos) {
                 todoStorage.save(todos)
             },
-            deep: true
+            deep: true  // 深度观察
         }
     },
 
