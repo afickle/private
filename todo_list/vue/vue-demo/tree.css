@@ -1,0 +1,33 @@
+html, body {
+	background: #efefef;
+	text-align: center;
+	min-height: 100%;
+	color: #666;
+}
+
+header, .header {
+	font-size: 45px;
+	color: #ffb2b2;
+	padding: 30px 0;
+}
+
+.main {
+	width: 640px;
+    margin: 10px auto;
+    padding: 15px 30px;
+    text-align: left;
+    box-shadow: 2px 2px 15px 5px #dcdcdc;
+    background: #fff;
+}
+
+.item {
+  cursor: pointer;
+}
+.bold {
+  font-weight: bold;
+}
+ul {
+  padding-left: 1em;
+  line-height: 1.5em;
+  list-style-type: dot;
+}

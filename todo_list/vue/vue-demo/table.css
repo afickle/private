@@ -1,0 +1,90 @@
+html, body {
+	background: #efefef;
+	text-align: center;
+	min-height: 100%;
+	color: #666;
+}
+
+header, .header {
+	font-size: 45px;
+	color: #ffb2b2;
+	padding: 30px 0;
+}
+
+.main {
+	width: 640px;
+    margin: 10px auto;
+    padding: 15px 30px;
+    text-align: left;
+    box-shadow: 2px 2px 15px 5px #dcdcdc;
+    background: #fff;
+}
+
+.main-label {
+	margin-right: 20px;
+}
+
+.main-input {
+	text-align: center;
+}
+
+.main-input input[type="text"] {
+	border: 1px solid #e8e8e8;
+    padding: 5px 10px;
+    width: 300px;
+    border-radius: 2px;
+    margin: 15px auto;
+}
+
+.main-table, table {
+	width: 100%;
+	text-align: center;
+}
+
+table {
+	border: 2px solid #ffb2b2;
+	border-radius: 3px;
+}
+
+th {
+	background-color: #ffb2b2;
+	color: rgba(255, 255, 255, 0.66);
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+th, td {
+	padding: 10px 20px;
+}
+
+th.active {
+	color: #fff;
+}
+
+th.active .arrow {
+	opacity: 1;
+}
+
+.arrow {
+	display: inline-block;
+	vertical-align: middle;
+	width: 0;
+	height: 0;
+	margin-left: 5px;
+	opacity: 0.66;
+}
+
+.arrow.asc {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: 4px solid #fff;
+}
+
+.arrow.dsc {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #fff;
+}
