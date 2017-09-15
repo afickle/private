@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+	<link rel="stylesheet" type="text/css" href="chart.css">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<script src="../app/lib/vue/dist/vue.min.js"></script>
+</head>
+<body>
+	<header class="header">Chart</header>
+	<div id="app" class="main">
+		<svg width="200" height="200">
+			<chart :stats="stats"></chart>
+		</svg>
+
+		<div class="main-stat">
+			<div v-for="stat in stats">
+				<label>{{ stat.label }}</label>
+				<input type="range" name="" v-model="stat.value" min="0" max="100">
+				<span>{{ stat.value }}</span>
+				<button @click="remove(stat)">X</button>
+			</div>
+		</div>
+
+		<form class="main-input">
+			<input type="text" name="newLabel" @keyup.enter="add" v-model="newLabel">
+			<button @click="add">Add New</button>
+		</form>
+	</div>
+
+	<script type="text/x-template" id="label-template">
+		<text :x="point.x" :y="point.y">{{ stat.label }}</text>
+	</script>
+
+	<script type="text/x-template" id="chart-template">
+		<g>
+			<polygon :points="points"></polygon>
+			<circle cx="100" cy="100" r="80"></circle>
+			<axis-label v-for="(stat, index) in stats" :stat="stat" :index="index" :total="stats.length"></axis-label>
+		</g>
+	</script>
+
+	<script type="text/javascript" src="chart.js"></script>
+</body>
+</html>

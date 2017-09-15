@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue_order</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="../public/css/vue.css">
+	<!-- <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script> -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <!-- <script type="text/javascript" src="../public/js/vuepage.js"></script> -->
+</head>
+<body>
+ 	<div id="app">
+        <p>{{ message }}</p>
+        <input v-model="message"> 
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ul>
+        <p>{{ inputinfo }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+        </br>
+        <input v-model="newTodo" v-on:keyup.enter="addTodo">
+        <ul>
+            <li v-for="todoto in todotos">
+                <span>{{ todoto.text }}</span>
+                <button v-on:click="removeTodo($index)">X</button>
+            </li>
+        </ul>
+    </div>
+
+    <div id="part1">
+        <!-- v-if 指令 -->
+        <p v-if="greeting">hello {{ name }}</p>
+        <!-- 不会更新 -->
+        <p v-if="greeting">hello {{* name }}</p>
+        <!-- |后面设置过滤器 -->
+        <p>{{{ raw_html | capitalize }}}</p>
+        <!-- 数据绑定内可用Javascript表达式 -->
+        <p>{{ num + 1 }}</p>
+
+        <p>{{ ok ? 'Yes' : 'No' }}</p>
+
+        <p>{{ name.split('').reverse().join('') }}</p>
+
+        <p><a v-bind:href="url" v-bind:class="{'linkcolor': 'isTrue'}">绑定链接</a></p>
+        <!-- 指令修饰符 -->
+        <!-- <p><a v-bind:href.literal="/a/b/c">绑定链接</a></p> -->
+
+        <p>a={{ a }}, b={{ b }}</p>
+
+        <p>{{ fullName }}</p>
+        <!-- template作为包装元素,最终不会渲染 -->
+        <template v-if="hide">
+            <h1>Title</h1>
+            <p>Paragraph</p>
+        </template>
+        <template v-else>
+            <h1>title</h1>
+            <p>paragraph</p>
+        </template>
+
+        <ul>
+            <li v-for="val in object">
+                {{ $key }} : {{ val }}
+            </li>
+        </ul>
+        <div>
+            <span>infom is : {{ infom }}</span>
+            <input type="text" v-model="infom" placeholder="Edit me ..."></input>
+        </div>
+        <div>
+            <input type="checkbox" id="checkbox" v-model="checked"></input>
+            <label for="checkbox">{{ checked }}</label>
+        </div>
+        <!-- 多选，绑定到一个数组（此处为名为json的数组） -->
+        <div>
+            <input type="checkbox" id="Jack" value="jack" v-model="checkedNames"></input>
+            <label for="Jack">Jack</label>
+            <input type="checkbox" id="John" value="john" v-model="checkedNames"></input>
+            <label for="John">John</label>
+            <input type="checkbox" id="Mike" value="mike" v-model="checkedNames"></input>
+            <label for="Mike">Mike</label>
+            </br>
+            <span>Checked Names: {{ checkedNames | json }}</span>
+        </div>
+        <div>
+            <input type="radio" id="one" value="One" v-model="picked"></input>
+            <label for="one">One</label>
+            <input type="radio" id="two" value="Two" v-model="picked"></input>
+            <label for="two">Two</label>
+            </br>
+            <span>Picked : {{ picked }}</span>
+        </div>
+        <!-- v-model都是绑定的selected,当两者同时存在？ -->
+        <!-- <div>
+            <select v-model="selected">
+                <option selected>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected : {{ selected }}</span>
+        </div> -->
+        <!-- <div>
+            <select v-model="selected" multiple>
+                <option selected>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected : {{ selected | json }}</span>
+        </div> -->
+        <div>
+            <select v-model="selected">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Selected : {{ selected }}</span>
+        </div>
+        <!-- part1VM.toggle = part1VM.a => 1 选中,,,part1VM.toggle = part1VM.b => 2 未选中 -->
+        <div><input type="checkbox" v-model="toggle" v-bind:true-value="a" v-bind:false-value="b"></div>
+        <div v-if="show" :transition="transitionName">Hello ~!</div>
+        <!-- <div v-if="show" transition="expand">Hello ~!</div> -->
+        <button>Toggle</button>
+        <div>
+            <input v-model="query">
+            <ul>
+                <li v-for="item in list | filterBy query" transition="staggered" strgger="100">
+                    {{ item.msg }}
+                </li>
+            </ul>
+        </div>
+    </div>    
+
+    <script type="text/javascript">
+        var appVM = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello vue.js!',
+                todos: [
+                    {text: 'Learn JavaScript'},
+                    {text: 'Learn Vue.js'},
+                    {text: 'Build Something Awesome'}
+                ],
+                // appVM.todos.push({text:'textinfo'}); 
+                inputinfo: 'Hello World!',
+                newTodo: '',
+                todotos: [
+                    {text: 'Add some todos'}
+                ]
+            },
+            methods: {
+                reverseMessage: function () {
+                    // this.message = this.message.split('').reverse().join('');
+                    this.inputinfo = this.inputinfo.split('').reverse().join('');
+                },
+
+                addTodo: function() {
+                    var text = this.newTodo.trim();
+                    if(text) {
+                        this.todotos.push({text: text});
+                        this.newTodo = ''
+                    }
+                },
+                removeTodo: function(index) {
+                    this.todotos.splice(index,1);
+                }
+            }
+        })
+
+        // 代理的数据属性
+        var part1Date = {
+            name: 'Vue.js',
+            greeting: true,
+            raw_html: 'world~',
+            num: 1,
+            ok: false,
+            url: 'http://cn.vuejs.org/guide/syntax.html',
+            a: 1,
+            firstName: 'foo',
+            lastName: 'bar',
+            fullName: 'Foo, Bar',
+            isTrue: true,
+            hide: false,
+            object: {
+                FirstName: 'John',
+                LastName: 'Doe',
+                Age: 30
+            },
+            checkedNames: [],
+            selected: 'A',
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ],
+            show: true,
+            transitionName: 'fade',
+            query: '',
+            list: [
+                {msg: 'Bruce Lee'},
+                {msg: 'Jackie Chan'},
+                {msg: 'Chunk Norries'},
+                {msg: 'Jet Li'},
+                {msg: 'Kung Fury'}
+            ]
+        }
+        var part1VM = new Vue({
+            el: '#part1',
+            data: part1Date,
+            created: function() {
+                // this志向part1VM实例
+                console.log('name is : ' + this.name + '    greeting is : ' + this.greeting);
+            },
+            // 提供的函数将用作属性 part1VM.b的 getter
+            computed: {
+                b: function() {
+                    return this.a + 1;
+                },
+                fullName: function() {
+                    return this.firstName + ' ' + this.lastName;
+                }
+            }
+        })
+        // JavaScript钩子
+        // Vue.transition('expand', {
+        Vue.transition('fade', {
+            beforeEnter: function(el) {
+                el.textContent = 'beforeEnter'
+            },
+            enter: function(el) {
+                el.textContent = 'enter'
+            },
+            afterEnter: function(el) {
+                el.textContent = 'afterEnter'
+            },
+            enterCancelled: function(el) {
+                el.textContent = 'enterCancelled'
+            },
+
+            beforeLeave: function(el) {
+                el.textContent = 'beforeLeave'
+            },
+            leave: function(el) {
+                el.textContent = 'leave'
+            },
+            afterLeave: function(el) {
+                el.textContent = 'afterLeave'
+            },
+            leaveCancelled: function(el) {
+                el.textContent = 'leaveCancelled'
+            }
+        })
+        // $world是一个实例方法，检测name值改变并回调操作
+        part1VM.$watch('name', function (newVal,oldVal) {
+            console.log('has changed !');
+        })
+        // 与上面的computed的fullName结果一样，还是计算比较好
+        /*part1VM.$watch('firstName', function (val) {
+            this.fullName = val + ' ' + this.lastName;
+        })
+        part1VM.$watch('lastName', function (val) {
+            this.fullName = this.firstName + ' ' + val;
+        })*/
+
+    </script>
+</body>
+</html>

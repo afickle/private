@@ -1,0 +1,30 @@
+input{
+	width: 150px;
+	margin: 20px auto;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid #eee;
+	border-radius: 10px;
+}
+.keyborad{
+	width: 100%;
+	height: auto;
+	position: fixed;
+	bottom: 0;
+	z-index: 5;
+	display: none;
+	text-align: center;
+	// font-size: 0;
+}
+.keyborad span{
+	// width: 33.33333%;
+	width: 25%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #eee;
+	display: inline-block;
+	font-size: 16px;
+}

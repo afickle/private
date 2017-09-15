@@ -1,0 +1,24 @@
+{
+  "name": "keyborad",
+  "version": "1.0.0",
+  "description": "make own keyborad",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afickle/keyborad.git"
+  },
+  "keywords": [
+    "keyborad",
+    "input"
+  ],
+  "author": "liuying",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afickle/keyborad/issues"
+  },
+  "homepage": "https://github.com/afickle/keyborad#readme",
+}

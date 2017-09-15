@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue_component</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="../public/css/vue.css">
+	<!-- <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script> -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <!-- <script type="text/javascript" src="../public/js/vuepage.js"></script> -->
+</head>
+<body>
+ 	<div id="example">
+        <my-component></my-component>
+        <part-component></part-component>
+        <msg msg="Hello ~!"></msg>
+        <!-- my-msg 即为下方的 myMsg -->
+        <message my-msg="Hello World ~!"></message>
+
+        <div>
+            <input v-model="parentMsg">
+            <br>
+            <inputchild :my-message="parentMsg"></inputchild>
+        </div>
+
+        <!-- 子组件模板 -->
+        <template id="child-template">
+            <input v-model="msge">
+            <button v-on:click="notify">Dispatch Event</button>
+        </template>
+        <!-- 父组件模板 -->
+        <div id="events-example">
+            <p>Message: {{ message | json }}</p>
+            <childp></childp>
+        </div>
+
+        <!-- 单个slot -->
+        <div>
+            <h1>This is my component</h1>
+            <slot>
+                This will only be displayed if there is no content to be distributed.
+            </slot>
+        </div>
+        <my-components>
+            <p>This is some original content</p>
+            <p>This is some more original content</p>
+        </my-components>
+
+        <!-- 动态组件 -->
+    </div>
+    <script type="text/javascript">
+        var MyComponent = Vue.extend({
+            template: '<div>A custom component</div>',
+            /** 使用一个函数作为 data 选项，函数返回一个新对象..因为
+              * var data = { a: 1 }
+              * var MyComponent = Vue.extend({
+              *     data: data
+              * })
+              * MyComponent 所有的实例将共享同一个 data 对象
+            */
+            data: function () {
+                return {a: 1}
+            }
+        })
+        Vue.component('my-component', MyComponent);
+
+        var Child = Vue.extend({
+            template: '<div>I\'m Child</div>',
+        });
+        var Parent = Vue.extend({
+            template: '<p>What do U talk about',
+            // part-component之能用在父组件模板内 I dont't understand ~!
+            components: {
+                'part-component': Child
+            }
+        })
+        Vue.component('part-component', Parent);
+
+        Vue.component('msg', {
+            props: ['msg'],
+            template: '<span>{{ msg }}<span/>'
+        })
+        // 名字形式为 camelCase 的 prop 用作特性时，需要转为 kebab-case（短横线隔开）
+        Vue.component('message', {
+            props: ['myMsg'],
+            template: '<span>{{ myMsg }}<span/>'
+        })
+
+        Vue.component('inputchild', {
+            template: '<span>{{ myMessage }}</span>',
+            props: ['myMessage']
+        })
+
+        Vue.component('my-components', {
+
+        })
+
+        // 注册子事件  将当前消息派发出去
+        Vue.component('childp', {
+            template: '#child-template',
+            data: function() {
+                return {msge: 'hello'}
+            },
+            methods: {
+                notify: function() {
+                    if (this.msge.trim()) {
+                        // $dispatch事件是派发事件，沿着父链冒泡
+                        this.$dispatch('childp-msge', this.msge);
+                        this.msge = ''
+                    }
+                }
+            }
+        })
+
+        new Vue({
+            el: '#example',
+            // 启动父组件 接收到消息时将事件推入一个数组
+            data: {
+                message: []
+            },
+            // 创建实例时，events调用$on
+            events: {
+                'childp-msge': function(msge) {
+                    // 事件回调内的this自动绑定到注册它的实例上
+                    this.message.push(msge);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
