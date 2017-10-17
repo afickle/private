@@ -1,0 +1,109 @@
+html, body {
+  background: #efefef;
+  text-align: center;
+  min-height: 100%;
+  color: #666;
+}
+
+header, .header {
+  font-size: 45px;
+  color: #ffb2b2;
+  padding: 30px 0;
+}
+
+.main {
+  width: 640px;
+  margin: 10px auto;
+  padding: 15px 30px;
+  text-align: left;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 
+              0 8px 0 -3px #f6f6f6, 
+              0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+              0 16px 0 -6px #f6f6f6, 
+              0 17px 2px -6px rgba(0, 0, 0, 0.2);
+  background: #fff;
+}
+
+.main-input {
+  padding: 15px 0;
+}
+
+.main-input input[type="checkbox"], 
+.items-list ul li input[type="checkbox"] {
+  width: 30px;
+  text-align: left;
+}
+
+.main-input input[type="text"] {
+  border: 1px solid #e8e8e8;
+  padding: 5px 10px;
+  line-height: 1.8;
+  width: 500px;
+  border-radius: 2px;
+}
+
+.items-list ul li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.items-list ul li.item-done, .items-list ul li .item-done {
+  color: #d6d4d4;
+  text-decoration: line-through;
+}
+
+.items-list ul li.item-done .itme-delete {
+  color: #666;
+}
+
+.items-list ul li:hover {
+  background: #ffe5e5;
+}
+
+.items-list ul li .itme-delete {
+  float: right;
+  padding: 0 15px;
+}
+
+.content-footer {
+  padding: 15px 0;
+}
+
+.content-footer div {
+  position: relative;
+  display: inline-block;
+  padding-right: 75px;
+}
+
+.content-btn {
+  float: right;
+}
+
+.content-btn .btn {
+  border: none;
+  background: #fff;
+  padding: 5px 8px;
+  border: 1px solid #fff;
+}
+
+.content-btn .btn:hover {
+  border: 1px solid #ffe5e5;
+  cursor: pointer;
+}
+
+.content-btn .btn:active, .content-btn .btn:focus{
+  border: 1px solid #f7e8e8;
+}
+
+.content-btn .btn-remove {
+  position: absolute;
+    right: 0;
+    top: 0;
+}
+
+footer, .footer {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px 0;
+  background: #e2e2e2;
+}
