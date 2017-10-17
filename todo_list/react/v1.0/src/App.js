@@ -159,7 +159,12 @@ class TodoItem extends Component {
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {newItem: '', isAll: false, todos: TODOS};
+        this.state = {
+            newItem: '', 
+            isAll: false, 
+            todos: TODOS,
+            filtertodos: TODOS
+        };
         this.onHandleInput = this.onHandleInput.bind(this);
         this.onHandleCheck = this.onHandleCheck.bind(this);
         this.onHandleKeyup = this.onHandleKeyup.bind(this);
@@ -177,7 +182,7 @@ class App extends Component {
             todo.completed = e;
             return todo;
         })
-        this.setState({isAll: e, todos: todos});
+        this.setState({isAll: e, todos: todos, filtertodos: todos});
     }
 
     onHandleKeyup(e) {
@@ -185,6 +190,7 @@ class App extends Component {
         let obj = {id: ++ids, item: e, completed: false};
         this.setState((preVal) => ({
             todos: preVal.todos.concat(obj),
+            filtertodos: preVal.todos.concat(obj),
             newItem: ''
         }))
     }
@@ -202,20 +208,21 @@ class App extends Component {
                 checked = false;
             }
         })
-        this.setState({isAll: checked, todos: todos});
+        this.setState({isAll: checked, todos: todos, filtertodos: todos});
     }
 
     onHandleRemove(e) {
         let index = this.state.todos.indexOf(e);
         this.state.todos.splice(index, 1);
         this.setState((preVal) => ({
-            todos: preVal.todos
+            todos: preVal.todos,
+            filtertodos: preVal.todos
         }))
     }
 
     checkAll(type) {
-        let todos = getItems[type](this.state.todos);
-        this.setState({todos: todos});
+        let filtertodos = getItems[type](this.state.todos);
+        this.setState({filtertodos: filtertodos});
     }
 
     render() {
@@ -231,7 +238,7 @@ class App extends Component {
                         onHandleKeyup={this.onHandleKeyup}
                     />
                     <TodoItem 
-                        todos={this.state.todos}
+                        todos={this.state.filtertodos}
                         isAll={this.state.isAll}
                         onHandleRemove={this.onHandleRemove} 
                         eachHandleCheck={this.eachHandleCheck}
