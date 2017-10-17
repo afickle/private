@@ -7,11 +7,30 @@ const TODOS = [
   {id: 2, item: 'Goods', completed: false}
 ];
 
+let ids = 2;
+
+let getItems = {
+    all: function(todos) {
+        return todos;
+    },
+    active: function(todos) {
+        return todos.filter(function(todo) {
+            return !todo.completed;
+        })
+    },
+    completed: function(todos) {
+        return todos.filter(function(todo) {
+            return todo.completed;
+        })
+    }
+}
+
 class AddBar extends Component {
     constructor(props) {
         super(props);
         this.handleInput = this.handleInput.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
+        this.handleKeyup = this.handleKeyup.bind(this);
     }
 
     handleInput(e) {
@@ -22,31 +41,44 @@ class AddBar extends Component {
         this.props.onHandleCheck(e.target.checked);
     }
 
+    handleKeyup(e) {
+        e.keyCode === 13 && this.props.onHandleKeyup(e.target.value);
+    }
+
     render() {
         return (
             <div className="main-input">
                 <input type="checkbox" checked={this.props.isAll} onChange={this.handleCheck} />
-                <input type="text" value={this.props.newItem} onChange={this.handleInput} />
+                <input type="text" value={this.props.newItem} onChange={this.handleInput} onKeyUp={this.handleKeyup} />
             </div>
         )
     }
 }
 
-class RowItem extends Component {
-    render() {
-        return (
-            <li className="todo">
-                <div className="view">
-                    <input type="checkbox" className="toggle" checked={this.props.todo.checked} />
-                    <label>{this.props.todo.item}</label>
-                    <span className="itme-delete">x</span>
-                </div>
-            </li>
-        )
-    }
-}
-
 class TodoBtn extends Component {
+    constructor(props) {
+        super(props);
+        this.clickAll = this.clickAll.bind(this);
+        this.clickActive = this.clickActive.bind(this);
+        this.clickCompleted = this.clickCompleted.bind(this);
+    }
+
+    clickAll() {
+        this.handleClick('all');
+    }
+
+    clickActive() {
+        this.handleClick('active');
+    }
+
+    clickCompleted() {
+        this.handleClick('completed');
+    }
+
+    handleClick(type) {
+        this.props.checkAll(type);
+    }
+
     render() {
         return (
             <div className="content-footer">
@@ -54,9 +86,9 @@ class TodoBtn extends Component {
                     <span>{this.props.todos.length}</span> items left
                 </div>
                 <div className="content-btn">
-                    <button className="btn">All</button>
-                    <button className="btn">Active</button>
-                    <button className="btn">Completed</button>
+                    <button className="btn" onClick={this.clickAll}>All</button>
+                    <button className="btn" onClick={this.clickActive}>Active</button>
+                    <button className="btn" onClick={this.clickCompleted}>Completed</button>
                     <button className="btn btn-remove">Remove</button>
                 </div>
             </div>
@@ -64,12 +96,53 @@ class TodoBtn extends Component {
     }
 }
 
+class RowItem extends Component {
+    constructor(props) {
+        super(props);
+        this.handleCheck = this.handleCheck.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
+    }
+
+    handleCheck(e) {
+        this.props.eachHandleCheck(e.target.checked, this.props.todo);
+    }
+
+    handleRemove() {
+        this.props.onHandleRemove(this.props.todo);
+    }
+
+    render() {
+        return (
+            <li className="todo">
+                <div className="view">
+                    <input type="checkbox" className="toggle" checked={this.props.todo.completed} onChange={this.handleCheck} />
+                    <label>{this.props.todo.item}</label>
+                    <span className="itme-delete" onClick={this.handleRemove}>x</span>
+                </div>
+            </li>
+        )
+    }
+}
+
 class TodoItem extends Component {
+    constructor(props) {
+        super(props);
+        this.eachHandleCheck = this.eachHandleCheck.bind(this);
+        this.onHandleRemove = this.onHandleRemove.bind(this);
+    }
+
+    eachHandleCheck(e, item) {
+        this.props.eachHandleCheck(e, item);
+    }
+
+    onHandleRemove(e) {
+        this.props.onHandleRemove(e);
+    }
     render() {
         const items = [];
         this.props.todos.forEach((todo) => {
             items.push(
-                <RowItem todo={todo} key={todo.id} />
+                <RowItem todo={todo} key={todo.id} eachHandleCheck={this.eachHandleCheck} onHandleRemove={this.onHandleRemove} />
             )
         })
 
@@ -86,11 +159,13 @@ class TodoItem extends Component {
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {newItem: '', isAll: false};
+        this.state = {newItem: '', isAll: false, todos: TODOS};
         this.onHandleInput = this.onHandleInput.bind(this);
         this.onHandleCheck = this.onHandleCheck.bind(this);
-        // this.onHandleBlur = this.onHandleBlur.bind(this);
-        // this.onHandleRemove = this.onHandleRemove.bind(this);
+        this.onHandleKeyup = this.onHandleKeyup.bind(this);
+        this.eachHandleCheck = this.eachHandleCheck.bind(this);
+        this.onHandleRemove = this.onHandleRemove.bind(this);
+        this.checkAll = this.checkAll.bind(this);
     }
 
     onHandleInput(e) {
@@ -98,16 +173,50 @@ class App extends Component {
     }
 
     onHandleCheck(e) {
-        this.setState({isAll: e});
+        var todos = this.state.todos.map((todo) => {
+            todo.completed = e;
+            return todo;
+        })
+        this.setState({isAll: e, todos: todos});
     }
 
-    /*onHandleBlur(e) {
-        this.setState
-    }*/
+    onHandleKeyup(e) {
+        /*如果TODOS是props怎么更新？*/
+        let obj = {id: ++ids, item: e, completed: false};
+        this.setState((preVal) => ({
+            todos: preVal.todos.concat(obj),
+            newItem: ''
+        }))
+    }
 
-    /*onHandleRemove(e) {
-        this.props.todos
-    }*/
+    eachHandleCheck(e, item) {
+        var todos = this.state.todos.map((todo) => {
+            if (todo === item) {
+                todo.completed = e;
+            }
+            return todo;
+        })
+        let checked = true;
+        todos.forEach(function(todo) {
+            if (!todo.completed) {
+                checked = false;
+            }
+        })
+        this.setState({isAll: checked, todos: todos});
+    }
+
+    onHandleRemove(e) {
+        let index = this.state.todos.indexOf(e);
+        this.state.todos.splice(index, 1);
+        this.setState((preVal) => ({
+            todos: preVal.todos
+        }))
+    }
+
+    checkAll(type) {
+        let todos = getItems[type](this.state.todos);
+        this.setState({todos: todos});
+    }
 
     render() {
         return (
@@ -119,14 +228,18 @@ class App extends Component {
                         isAll={this.state.isAll}
                         onHandleInput={this.onHandleInput}
                         onHandleCheck={this.onHandleCheck}
-                        onHandleBlur={this.onHandleBlur}
+                        onHandleKeyup={this.onHandleKeyup}
                     />
                     <TodoItem 
-                        todos={TODOS}
+                        todos={this.state.todos}
                         isAll={this.state.isAll}
                         onHandleRemove={this.onHandleRemove} 
+                        eachHandleCheck={this.eachHandleCheck}
                     />
-                    <TodoBtn todos={TODOS} />
+                    <TodoBtn 
+                        todos={this.state.todos} 
+                        checkAll={this.checkAll}
+                    />
                 </div>
             </div>
         );
