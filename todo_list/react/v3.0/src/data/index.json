@@ -1,0 +1,25 @@
+{
+    "returnCode":0,
+    "returnMsg":"success.",
+    "returnVal":[
+        {
+            "id":1,
+            "name": "入库",
+            "url": "/whout",
+            "icon":"fa-th",
+            "children": null
+        },{
+            "id":2,
+            "name": "出库",
+            "url":"",
+            "icon":"fa-th",
+            "children": [
+                {"name":"入库单管理","icon":"fa-th","url":"/whin/order"},
+                {"name":"入库通知单管理","icon":"fa-th","url":"/whin/notice"},
+                {"name":"收货记录查询","icon":"fa-th","url":"/whin/receiving_record"},
+                {"name":"上架任务管理","icon":"fa-th","url":"/whin/shelve_task"},
+                {"name":"上架记录查询","icon":"fa-th","url":"/whin/shelve_record"}
+            ]
+        }
+    ]
+}
